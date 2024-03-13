@@ -1,0 +1,7 @@
+.show-more {
+    overflow: hidden;
+
+    &__content {
+        transition: height 0.2s;
+    }
+}

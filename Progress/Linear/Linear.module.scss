@@ -1,0 +1,95 @@
+.progress {
+  direction: ltr;
+  border-radius: radius(pill);
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+
+  &__bar {
+    border-radius: radius(pill);
+    height: 100%;
+    transition: all 0.5s;
+    width: var(--width, 0);
+    animation: filler 2s;
+    background-color: var(--color);
+
+    &--indeterminate {
+      width: auto !important;
+      animation: none;
+      background-color: transparent;
+
+      &::before {
+        content: '';
+        height: 100%;
+        position: absolute;
+        background-color: var(--color);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        will-change: left, right;
+        animation:
+          indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+        border-radius: radius(pill);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: var(--color);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        will-change: left, right;
+        animation:
+          indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+        animation-delay: 1.15s;
+        border-radius: radius(pill);
+      }
+    }
+  }
+}
+
+@keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+
+@keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}
+
+@keyframes filler {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: var(--width);
+  }
+}

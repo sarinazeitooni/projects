@@ -1,0 +1,61 @@
+.pagination-container {
+  display: flex;
+  list-style-type: none;
+  flex-direction: row-reverse;
+  align-items: center;
+  .pagination-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    margin: auto s(2);
+    color: #344054;
+    display: flex;
+    border-radius: 50%;
+    font-size: 16px;
+    width: 40px;
+    @include break-df(lg){
+      width: 24px;
+      margin: auto s(1);
+      font-size: 14px;
+      height: 24px;
+    }
+    &:hover {
+      color: #fff;
+      background-color: #ffba8a;
+      cursor: pointer;
+    }
+
+    &--selected {
+      color: #fff;
+      background-color: #ff6a00;
+    }
+
+    &--disabled {
+      pointer-events: none;
+
+      &:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+}
+.dots:hover {
+  background-color: transparent;
+  cursor: default;
+}
+.arrows {
+  height: 16px !important;
+  width: 16px !important;
+  margin: 0 s(2);
+  cursor: pointer;
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    &:hover {
+      background-color: transparent;
+      cursor: default;
+    }
+  }
+}

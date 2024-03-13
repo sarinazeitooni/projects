@@ -1,0 +1,191 @@
+.footer {
+  width: 100%;
+  background-color: #125ce7;
+  padding-top: s(9);
+  @include break-df(lg) {
+    padding-top: s(6);
+  }
+  > div {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    display: grid;
+    grid-template-areas:
+      "links      e-namad"
+      "b2b        b2b"
+      "support    support"
+      "hr         hr"
+      "copyrights copyrights";
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+
+    @include break-df(lg) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "links"
+        "b2b"
+        "support"
+        "e-namad"
+        "hr"
+        "copyrights";
+    }
+  }
+
+  &__links {
+    width: 100%;
+    grid-area: links;
+    display: grid;
+    gap: 180px;
+    grid-template-columns: repeat(3, auto);
+    margin-bottom: s(7);
+    &__group {
+      display: flex;
+      height: auto;
+      flex-direction: column;
+      p {
+        width: 100%;
+        color: #fff !important;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: s(5);
+      }
+      a {
+        width: 100%;
+        color: #e9effa !important;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none !important;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 16px;
+      }
+    }
+
+    &__social {
+      width: 100%;
+      height: auto;
+
+      p {
+        color: #fff !important;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: s(5);
+      }
+      ul {
+        display: flex;
+        gap: 16px;
+      }
+      @include break-df(lg) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 34px;
+        margin-top: s(6);
+
+        ul {
+          gap: 24px;
+        }
+        p {
+          margin-bottom: 0 !important;
+        }
+      }
+    }
+
+    @include break-df(lg) {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 32px;
+      gap: 8px;
+      margin-bottom: s(6);
+      &__social {
+        grid-column-start: 1;
+        grid-column-end: -1;
+      }
+    }
+  }
+
+  &__e-namad {
+    grid-area: e-namad;
+    width: 125px;
+    height: 136px;
+    @include break-df(lg) {
+      margin: auto;
+      margin-bottom: s(4);
+    }
+  }
+
+  &__b2b {
+    text-decoration: none;
+    grid-area: b2b;
+    display: block;
+    width: 211px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: r(3);
+    border: 1px solid #125ce7;
+    background: #eef4ff;
+    color: #125ce7 !important;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: s(7);
+    @include break-df(lg) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__support {
+    grid-area: support;
+    display: flex;
+    gap: 8px;
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: s(5);
+
+    a {
+      text-decoration: none;
+      margin-right: s(2);
+      color: #e9effa !important;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    @include break-df(lg) {
+      a {
+        color: #e9effa !important;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        margin-right: s(2);
+      }
+    }
+  }
+
+  hr {
+    grid-area: hr;
+    grid-column-end: -1;
+    width: 100%;
+    border-bottom: 1px solid #5d8fec;
+    margin-bottom: s(5);
+    @include break-df(lg) {
+      margin-bottom: s(4);
+    }
+  }
+
+  &__copyrights {
+    grid-area: copyrights;
+    grid-column-end: -1;
+    width: 100%;
+    line-height: 24px;
+    text-align: center;
+    color: #fff !important;
+    font-size: 11px;
+    font-weight: 400;
+    margin-bottom: s(5);
+  }
+  &--hidden{
+    visibility: hidden;
+  }
+}
